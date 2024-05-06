@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElProyecto/TES</title>
+        <!-- links para exportar a excel -->
+    <script src="https://unpkg.com/xlsx@0.16.9/dist/xlsx.full.min.js"></script>
+    <script src="https://unpkg.com/file-saverjs@latest/FileSaver.min.js"></script>
+    <script src="https://unpkg.com/tableexport@latest/dist/js/tableexport.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="compra.css" />
+</head>
+
+<body>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+    function validar(){
+        //Almacenamos los valores
+	    nombre=$('#nombre').val();
+	    ape=$('#ape').val();
+        correo=$('#correo').val();
+        tel=$('#tel').val();
+	    dir=$('#dir').val();
+        tipoTarjeta = $('#tipo_tarjeta').val();
+        numeroTarjeta = $('#numero_tarjeta').val();
+        fechaVencimiento = $('#fecha_vencimiento').val();
+        codigoSeguridad = $('#codigo_seguridad').val();
+	    //Comprobamos y mostramos diferentes clases
+	    if (nombre==''){
+            $('#name').removeClass().addClass('inicio');
+	    }
+	    else {
+            $('#name').removeClass().addClass('ok');
+	    }
+        if (ape==''){
+            $('#last').removeClass().addClass('inicio');
+	    }
+	    else {
+            $('#last').removeClass().addClass('ok');
+	    }
+	    if (correo==''){
+            $('#correoid').removeClass().addClass('inicio');
+	    }
+        else {
+            $('#correoid').removeClass().addClass('ok');
+	    } 
+        if (tel==''){
+            $('#telefono').removeClass().addClass('inicio');
+	    }
+        else {
+            $('#telefono').removeClass().addClass('ok');
+	    }	
+        if (dir==''){
+            $('#direccion').removeClass().addClass('inicio');
+	    }
+        else {
+            $('#direccion').removeClass().addClass('ok');
+	    }
+        if (tipoTarjeta === '') {
+            $('#tipo_tarjeta').removeClass().addClass('inicio');
+        } else {
+            $('#tipo_tarjeta').removeClass().addClass('ok');
+        }
+        if (numeroTarjeta === '') {
+            $('#numero_tarjeta').removeClass().addClass('inicio');
+        } else {
+            $('#numero_tarjeta').removeClass().addClass('ok');
+        }
+        if (fechaVencimiento === '') {
+            $('#fecha_vencimiento').removeClass().addClass('inicio');
+        } else {
+            $('#fecha_vencimiento').removeClass().addClass('ok');
+        }
+        if (fechaVencimiento1 === '') {
+            $('#fecha_vencimiento1').removeClass().addClass('inicio');
+        } else {
+            $('#fecha_vencimiento1').removeClass().addClass('ok');
+        }
+        if (codigoSeguridad === '') {
+            $('#codigo_seguridad').removeClass().addClass('inicio');
+        } else {
+            $('#codigo_seguridad').removeClass().addClass('ok');
+        }
+    
+
+	    //Si no hay ningun campo vacio enviamos el formulario
+        if (nombre=='' || ape=='' || correo=='' || tel=='' || dir=='' || tipoTarjeta === '' || numeroTarjeta === '' || fechaVencimiento === '' || fechaVencimiento1 === '' || codigoSeguridad === ''){
+            return false; 
+		    }
+		    else return true;
+            
+    }
+    </script>
+
+<font size="6" face="Arial Black" color="Green"><h1> Tienda virtual White Winter </h1></font>
+<form action="#" method="post" onSubmit="exportarExcel">
+    <span class="inicio" id="name">Nombres Completos:</span>
+    <p><input type="text" name="primer nombre"  id="names" placeholder="nombres completos" minlength="3" onBlur="validar();"autofocus required /><br><br></p>
+    <span class="inicio" id="name">Apellidos Completos:</span>
+    <p><input type="text" size="30" name="primer apellido" id="last" placeholder="apellidos Completos" minlength="3" onBlur="validar();"autofocus autofocus required /><br><br></p>
+    <span class="inicio" id="name">Correo electrónico:</span>
+    <p><input type="email" name="Correo control" id="correoid" placeholder="Ingrese su Email para la compra" onBlur="validar();" required /><br></p>
+    <p>Teléfono: <input type="tel" name="cel control" id="telefono" placeholder="Ingrese su numero de telefono" onBlur="validar();" required /></p><br><br>
+    <p>Direccion de envío:<input type="text" size="60" name="envio" id="direccion"  placeholder="direccion de envio" onBlur="validar();" autofocus required /><br><br></p>
+    <h1>Método de Pago</h1>
+    <label>Nombre del titular</label><br>
+    <input type="text" name="tipo_tarjeta" id="nombret" placeholder="Nombre impreso en la tarjeta"required><br><br>
+    <label>Número de Tarjeta:</label><br>
+    <input type="text" name="numero_tarjeta" id="numero_tarjeta" placeholder="Numero targeta" required><br><br>
+    <span id="tarjeta_error" style="color: red;"></span><br><br>
+    <label>Fecha de Vencimiento:</label><br>
+    <select name="fecha_vencimiento" id="fecha_vencimiento" required>
+        <option value="">Seleccionar Mes</option>
+        <option value="01">Enero</option>
+        <option value="02">Febrero</option>
+        <option value="03">Marzo</option>
+        <option value="04">Abril</option>
+        <option value="05">Mayo</option>
+        <option value="06">Junio</option>
+        <option value="07">Julio</option>
+        <option value="08">Agosto</option>
+        <option value="09">Septiembre</option>
+        <option value="10">Octubre</option>
+        <option value="11">Noviembre</option>
+        <option value="12">Diciembre</option>
+        <!-- Agrega más opciones según tus necesidades -->
+    </select><br><br>
+    <input type="text" name="fecha_vencimiento1" id="fecha_vencimiento1"  placeholder="Ingrese el año de expedicion" required><br><br>
+    <span id="fecha_error" style="color: red;"></span><br><br>
+    <label>Código de Seguridad:</label><br>
+    <input type="text" name="codigo_seguridad" id="codigo_seguridad"placeholder="Codigo de seguridad" required><br><br>
+    <span id="codigo_error" style="color: red;"></span><br><br>
+    
+    <input align="center" type="submit" id="btn" value="Exportar a Excel mis datos" onclick="validateEmail();exportarExcel()"><br><br>
+    
+    <button onclick="exportarVentaExcel()">Exportar Venta a excel</button><br>
+    <a href="sitio web experimental.html" >Regresar a la página principal</a><br>
+</form>
+    <br>
+
+    <script>
+        var fechaInput = document.getElementById('fecha_vencimiento1');
+        var fechaError = document.getElementById('fecha_error');
+
+        fechaInput.addEventListener('input', function() {
+            var fecha = new Date(this.value);
+            var anio = fecha.getFullYear();
+
+            if (anio <= 2021) {
+                fechaError.textContent = 'La fecha debe ser mayor a 2023.';
+                this.setCustomValidity('La fecha debe ser mayor a 2023.');
+            } else {
+                fechaError.textContent = '';
+                this.setCustomValidity('');
+            }
+        });
+    </script>
+    //tarjeta
+    <script>
+        var codigoInput = document.getElementById('codigo_seguridad');
+        var codigoError = document.getElementById('codigo_error');
+
+        codigoInput.addEventListener('input', function() {
+            var codigo = this.value.trim();
+
+            if (!/^\d{3,4}$/.test(codigo)) {
+               codigoError.textContent = 'El código de seguridad debe tener 3 o 4 dígitos.';
+               this.setCustomValidity('El código de seguridad debe tener 3 o 4 dígitos.');
+            } else {
+              codigoError.textContent = '';
+              this.setCustomValidity('');
+            }
+        });
+    </script>
+    
+    <script>
+        var tarjetaInput = document.getElementById('numero_tarjeta');
+        var tarjetaError = document.getElementById('tarjeta_error');
+
+        tarjetaInput.addEventListener('input', function() {
+            var tarjeta = this.value.trim();
+
+            if (!/^\d{13}$|^\d{18}$/.test(tarjeta)) {
+                tarjetaError.textContent = 'El número de tarjeta debe tener 13 o 18 dígitos.';
+                this.setCustomValidity('El número de tarjeta debe tener 13 o 18 dígitos.');
+            } else {
+                tarjetaError.textContent = '';
+                this.setCustomValidity('');
+            }
+        });
+    </script>
+    
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
+    <script >
+        function validarenvio(){
+            var btn=document.getElementById('btn')
+            btn.addEventListener('click',function(e){
+                e.preventDefault()
+                var names=document.getElementById('names').value;
+                var last=document.getElementById('last').value;
+                var email=document.getElementById('correoid').value;
+                var subject=document.getElementById('direccion').value;
+                var message=' Su compra se efectuo correctamente ';
+                var body = 'Nombre: ' + names + '<br/>Apellido: ' + last + '<br/>Email: ' + email + '<br/>Dirección: ' + '<br/>Mensaje: ' + message;
+                
+                Email.send({
+                    SecureToken : "109eeae5-50f6-470f-997a-6e214d6c49e1",
+                    To : email,
+                    From : "white_winter_oficial@hotmail.com",
+                    Subject : "contact message ",
+                    Body : body
+                }).then(
+                    message => alert(message)
+                );
+                console.log('Listo');
+            })
+        }
+    </script>
+
+
+    <script type="text/javascript">
+        function validateEmail(){
+            
+            // Define our regular expression.
+            var validEmail =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+
+            // Using test we can check if the text match the pattern
+            if( validEmail.test( jQuery('#correoid').val() ) ){
+                alert("El correo electrónico es válido");
+                validarenvio();
+                exportarExcel();
+                return true;
+            }else{
+                alert("El correo electrónico no es válido");
+                return false;
+            }
+        }
+    </script>
+<script>
+// Llamar a la función para exportar el archivo Excel
+function exportarExcel() {
+  // Obtener los datos del formulario
+  const cant = '1';
+  const names = document.getElementById('names').value;
+  const last = document.getElementById('last').value;
+  const correoid = document.getElementById('correoid').value;
+  const telefono = document.getElementById('telefono').value;
+  const direccion = document.getElementById('direccion').value;
+  const nombret = document.getElementById('nombret').value;
+  const numero_tarjeta = document.getElementById('numero_tarjeta').value;
+  const fecha_vencimiento = document.getElementById('fecha_vencimiento').value;
+  const fecha_vencimiento1 = document.getElementById('fecha_vencimiento1').value;
+  const codigo_seguridad = document.getElementById('codigo_seguridad').value;
+
+  // Crear una matriz de datos
+  const data = [
+    ['Numero', 'Nombre', 'Apellido', 'Correo', 'Telefono', 'Direccion', 'Nombre titular', 'Tarjeta', 'Vencimiento', 'Año', 'Seguridad'],
+    [cant, names, last, correoid, telefono, direccion, nombret, numero_tarjeta, fecha_vencimiento, fecha_vencimiento1, codigo_seguridad]
+  ];
+
+  // Crear el libro de Excel
+  const workbook = XLSX.utils.book_new();
+  const worksheet = XLSX.utils.aoa_to_sheet(data);
+  XLSX.utils.book_append_sheet(workbook, worksheet, 'Adicional');
+
+  // Descargar el archivo de Excel
+  XLSX.writeFile(workbook, 'Adicional.xlsx');
+}
+
+</script>
+
+</script>
+    
+    <script src="otro.js"></script>
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+
+    </script>
+</body>
+</html>

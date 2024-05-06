@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto experimental</title>
+    <link rel="stylesheet" href="sitio web experimental.css">
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+    
+    
+    
+    
+</head>
+
+<body>
+
+    <header class="header">
+
+        <a href="#" class="logo"><img class="logo" src="white winter logo.jpeg"></a>
+        <div class="menu container">
+            
+            
+            <input type="checkbox" id="menu">
+            <label for="menu">
+                <img src="menu.png" class="menu-icono">
+            </label>
+            
+            <nav class="navbar">
+                
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Servicios</a></li>
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </nav>
+            <div>
+                <ul>
+                    <li class="submenu">
+                        <img src="shopping-bag.png" id="img-carrito" alt="carrito">
+                        <div id="carrito">
+                            <table id="lista-carrito">
+                                <thead>
+                                    <tr>
+                                        <th>Imagen</th>
+                                        <th>Nombre</th>
+                                        <th>Precio</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                            <a href="#" id="vaciar-carrito" class="btn-3">Vaciar Carrito</a>
+                            <button id="btn-comprar">Comprar</button>
+                            <span id="contador-carrito"></span>
+                            <p>Total de la compra: <span id="total-compra"></span></p>
+                        </div>
+                        
+                    </li>
+                </ul>
+            </div>
+            <!-- HTML para el menú desplegable -->
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+
+        </div>
+
+        <div class="header-contentcontainer">
+
+            <div class="header-txt">
+                <br><br>
+                <br><br>
+                <br>
+                <br>
+                <h1> <span>!Bienvenidos¡</span> Disfruta de nuestros atuendos para la epoca mas fria del año.</h1>
+                <p>
+                    Encuentra en nuestra pagina virtual todo lo que necesitas para estos meses invernales,
+                    vistete con la elegancia de nuestras prendas para que cada dia
+                    luzcas resplandeciente!.
+                </p>
+                <a href="#" class="btn-1"> Más Información</a>
+            </div>
+
+        </div>
+
+    </header>
+    
+    
+
+
+    <section>
+
+        <main class="products">
+            <h2>Productos</h2>
+            <div class="box-container" id="lista-1">
+                <div class="ropaparamujer">
+                    <h3>Para Mujer</h3>
+                    <div class="box-container"> 
+                    <div class="ropa">
+                        <img src="abrigo.jpeg" width="200" alt="Chaqueta">
+                        <div class="product-txt">
+                            <h4>Chaqueta</h4>
+                            <p>Calidad Premium</p>
+                            <p class="precio">139.53 $</p>
+                            <p class="talla">Tallas desde: S-M-L-XL</p>
+                            <p class="descripcion">Descripción: Chaqueta de esquí impermeable para mujer Wantdo abrigo para nieve invierno montaña snowboard.</p>
+                            <a href="#" class="agregar-carrito" data-id="ID_DEL_PRODUCTO" data-id="1">Agregar al carrito</a>
+                        </div>
+                    </div>
+
+                    <div class="ropa">
+                        <img src="botas 2.jpg" width="200" alt="Botas">
+                        <div class="product-txt">
+                            <h4>Botas</h4>
+                            <p>Calidad Premium</p>
+                            <p class="precio">53.27 $</p>
+                            <p class="talla">Tallas desde: 35-40</p>
+                            <p class="descripcion">Descripción: Diseño hermoso de la suela de goma, las botas de nieve Obtaom para mujer subrayan los sentimientos positivos, tienen un hermoso diseño, requieren moda y funcionalidad.</p>
+                            <a href="#" class="agregar-carrito" data-id="ID_DEL_PRODUCTO" data-id="2">Agregar al carrito</a>
+                        </div>
+                    </div>
+                    <div class="ropa">
+                        <img src="botas palo rosa3.jpg" width="200" alt="Botas Modernas">
+                        <div class="product-txt">
+                            <h4>Botas Modernas</h4>
+                            <p>Calidad Premium</p>
+                            <p class="precio">60.08</p><p>$</p>
+                            <p class="talla">tallas desde:35-40</p>
+                            <p class="descripcion">Descripcion: Las botas Convoy Fur de Lugz para mujer son unas botas
+                                clásicas de piel sintética de 6 pulgadas con un toque de lujo.
+                                La combinación perfecta de calidez y comodidad, estas botas son un básico del armario de
+                                invierno.</p>
+                            <a href="#" class="agregar-carrito" data-id="ID_DEL_PRODUCTO" data-id="1">Agregar al carrito</a>
+                        </div>
+                    </div>
+                    <div class="ropa">
+                        <img src="abrigo parka.jpg" width="200" alt="Abrigo">
+                        <div class="product-txt">
+                            <h4>Parka Tunuskat</h4>
+                            <p>Calidad Premium</p>
+                            <p class="precio">61.91</p><p>$</p>
+                            <p class="talla">tallas desde:s-m-l-xl</p>
+                            <p class="descripcion">Descripcion: Parka para mujer, abrigo de nieve grueso y cálido para
+                                invierno,
+                                con capucha de piel, forro sherpa, chaqueta acolchada para mujer, abrigo pesado para mujer.
+                            </p>
+                            <a href="#" class="agregar-carrito" data-id="ID_DEL_PRODUCTO" data-id="1">Agregar al carrito</a>
+                        </div>
+                    </div>
+                    <div class="ropa">
+                        <img src="pantalon 2.jpeg" width="200" alt="Pantalon">
+                        <div class="product-txt">
+                            <h4>Pantalon para Nieve</h4>
+                            <p>Calidad Premium</p>
+                            <p class="precio">55.53</p><p>$</p>
+                            <p class="talla">tallas desde:30-36</p>
+                            <p class="descripcion">Descripcion: Temporada tras temporada, los pantalones de nieve con
+                                aislamiento 1800 Arctix para mujer
+                                sirven como pantalones de esquí/nieve a un precio excepcional y una piedra angular versátil
+                                de la línea Arctix.</p>
+                            <a href="#" class="agregar-carrito" data-id="ID_DEL_PRODUCTO" data-id="1">Agregar al carrito</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="box-container" id="lista-1"></div>
+
+                <div class="box"></div>
+
+                <div class="ropaparahombre">
+
+                    <h3>Para Hombre</h3>
+                    <div class="box-container"> 
+                    <div class="ropa">
+                        <img src="abrigo 2.jpeg" width="200" alt="Abrigo">
+                        <div class="product-txt">
+                                <h4>Chaqueta</h4>
+                                <p>Calidad Premium</p>
+                                <p class="precio">54.39</p><p>$</p>
+                                <p class="talla">tallas desde:s-m-l-xl</p>
+                                <p class="descripcion">Descripcion: Deportes de invierno al aire libre como esquí alpino,
+                                    snowboard y deportes de nieve.</p>
+                                <a href="#" class="agregar-carrito" data-id="ID_DEL_PRODUCTO" data-id="1">Agregar al carrito</a>
+                            </div>
+                        </div>
+
+                    <div class="ropa">
+                        <img src="zapatos.jpeg" width="200 " alt="Zapatos">
+                        <div class="product-txt">
+                            <h4>Botas impermeables</h4>
+                            <p>Calidad Premium</p>
+                            <p class="precio">114.00</p><p>$</p>
+                            <p class="talla">tallas desde:35-40</p>
+                            <p class="descripcion">Descripcion: Los peligrosos días de senderismo son cómodos y sin
+                                preocupaciones gracias a la confección de botines impermeables de piel y malla de plena
+                                flor de esta bota y a su duradera lengüeta de malla para una mayor transpirabilidad.</p>
+                            <a href="#" class="agregar-carrito" data-id="ID_DEL_PRODUCTO" data-id="1">Agregar al carrito</a>
+                        </div>
+                    </div>
+
+                    <div class="ropa">
+                        <img src="pantalon.jpeg" width="200"  alt="pantalon">
+                        <div class="product-txt">
+                            <h4>Pantalones</h4>
+                            <p>Calidad Premium</p>
+                            <p class="precio">55</p><p>$</p>
+                            <p class="talla">tallas desde:34-36</p>
+                            <p class="descripcion">Descripcion: Pantalones de carga para deportes de nieve con una
+                                cintura ajustable para un ajuste cómodo y es 100% poliéster.</p>
+                            <a href="#" class="agregar-carrito" data-id="ID_DEL_PRODUCTO" data-id="1">Agregar al carrito</a>
+                        </div>
+                    </div>
+
+                    <div class="ropa">
+                        <img src="abrigo sin mangas.webp" width="200" alt="abrigo">
+                        <div class="product-txt">
+                            <h4>Chaqueta</h4>
+                            <p>Calidad Premium</p>
+                            <p class="precio">239</p><p>$</p>
+                            <p class="talla">tallas desde:s-m-l-xl</p>
+                            <p class="descripcion">Descripcion: Chaqueta de Pluma sin Mangas Down Sweater Vest es ligera
+                                y cortaviento con una protección exterior antidesgarro de poliéster ripstop 100%
+                                reciclado y Pluma Trazable de 800-fill-power.</p>
+                            <a href="#" class="agregar-carrito" data-id="ID_DEL_PRODUCTO" data-id="1">Agregar al carrito</a>
+                        </div>
+                    </div>
+
+                    <div class="ropa">
+                        <img src="gorro para hombre.webp" width="200">
+                        <div class="product-txt">
+                            <h4>Gorro de Lana Tejida</h4>
+                            <p>Calidad Premium</p>
+                            <p class="precio">22.25</p><p>$</p>
+                            <p class="talla">tallas desde:m-l</p>
+                            <p class="descripcion">Descripcion: 100% de alta calidad con un estilo casual, gorro de
+                                invierno para mantenerse siempre caliente.</p>
+                            <a href="#" class="agregar-carrito" data-id="ID_DEL_PRODUCTO" data-id="1">Agregar al carrito</a>
+                        </div>
+                    </div>
+                    
+                </div>
+
+        </main>
+
+    </section>
+
+
+
+    <footer class="footer">
+        <div class="link">
+            <h3>Servicio al cliente</h3>
+            <ul>
+                <li><a href="#">Preguntas Frecuentes</a></li>
+                <li><a href="#">Garantia Incondicional</a></li>
+                <li><a href="#">Garantia del Fabricante</a></li>
+                <li><a href="#">Compra 100% segura</a></li>
+                <li><a href="#">Terminos de Uso</a></li>
+                <li><a href="#">Promociones</a></li>
+            </ul>
+        </div>
+    
+        <div class="link">
+            <h3>Acerca de nosotros</h3>
+            <ul>
+                <li><a href="#">Nuestra Empresa</a></li>
+                <li><a href="#">Responsabilidad Social</a></li>
+                <li><a href="#">Garantia del Fabricante</a></li>
+                <li><a href="#">Noticias</a></li>
+                <li><a href="#">Trabaja con Nosotros</a></li>
+            </ul>
+        </div>
+    
+        <div class="linkAtencion">
+            <h3>Atención al cliente</h3>
+            <ul>
+                <li><a href="#">WhatsApp:0968941053</a></li>
+                <li><img src="Whatsapp-logo.png" width="50" height="30"></li>
+                <li><a href="#">Telefono Convencional:042937176</a></li>
+                <li><img src="dibujo-telefono.jpg" width="50" height="30" margin="center"></li>
+            </ul>
+        </div>
+    
+        <div class="link">
+            <h3>Encuéntranos en las redes sociales como White_Winter:</h3>
+            <div class="social-icons">
+                <div>
+                    <img src="facebook3.jpg" width="50">
+                </div>
+                <div>
+                    <img src="instagram4.png" width="50">
+                </div>
+                <div>
+                    <img src="telegram.jpg" width="55">
+                </div>
+                <div>
+                    <img src="twitter3.png" width="50">
+                </div>
+                <div>
+                    <img src="yahoo-mail.jpg" width="50">
+                </div>
+            </div>
+        </div>
+        
+    
+        <div class="download">
+            <ul>
+                <li class="store"><img src="store1.png" width="200"></li>
+                <li class="store"><img src="store2.png" width="200"></li>
+            </ul>
+        </div>
+        
+    </footer>
+    
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+    <script src="otro.js"></script>
+    
+
+
+    
+</body>
+
+</html>
